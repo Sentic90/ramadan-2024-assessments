@@ -1,3 +1,4 @@
+
 # Ramadan 2020 assessments
 
 > Hi all, this is the repo that holds the assessments that covers ramadan 2020 series on [Semicolon academy](https://www.youtube.com/SemicolonAcademy) youtube channel, no implementations here, only the assessments, you could check later the resolutions on different repos on github as well, or watch the series and build it up together.
@@ -11,8 +12,8 @@ In this repo you will find some given express server configured to make some bas
 1. After cloning the repo and installing the dependencies in the server folder, you should next [setup mongodb](https://docs.mongodb.com/manual/installation/) locally and copy the connection url to the required place in `server/models/mongo.config.js`.
 2. Navigate to server directory, run `npm install` then run `npm start` in the server folder (btw, cors are enabled so you can run server if you want on a separate port).
 3. Implement the frontend code to make it work with the following functionalities:
-   - [ ] Submit a video request. (API: POST -> `/video-request`)
-   - [ ] Show list of requests below the form. (API: GET -> `/video-request`)
+   - [x] Submit a video request. (API: POST -> `/video-request`)
+   - [x] Show list of requests below the form. (API: GET -> `/video-request`)
    - [ ] Vote up and down on each request. (API: PUT -> `/video-request/vote`)
    - [ ] Sorting options `new first` the default one, and `top voted first`.
    - [ ] Search box to search for video requests.
