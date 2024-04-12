@@ -28,10 +28,24 @@ app.post("/video-request", upload.none(), async (req, res, next) => {
   next();
 });
 
-app.get("/video-request", async (req, res, next) => {
-  const data = await VideoRequestData.getAllVideoRequests();
-  res.send(data);
-  next();
+app.get("/video-request", async (req, res) => {
+  const { sortBy } = req.query;
+  try {
+    const data = await VideoRequestData.getAllVideoRequests();
+
+    if (sortBy === "topVotedFirst") {
+      const sortedData = data.sort((a, b) => {
+        const aScore = a.votes.ups - a.votes.downs;
+        const bScore = b.votes.ups - b.votes.downs;
+        return bScore - aScore;
+      });
+      res.send(sortedData);
+      return;
+    }
+    res.send(data);
+  } catch (ex) {
+    res.status(500).send({ error: "Failed to retrieve data" });
+  }
 });
 
 app.get("/users", async (req, res, next) => {
